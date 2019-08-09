@@ -1,0 +1,9 @@
+{
+    "name": "frontend-utilites",
+    "version": "0.0.0",
+    "description": "Frontend utilities and helpers",
+    "author": {
+        "name" : "Arran Jacques",
+        "email" : "arranjacques@gmail.com"
+    }
+}
