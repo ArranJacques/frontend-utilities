@@ -34,3 +34,23 @@ export function onLoad(cb: () => void): void {
 export function onResize(cb: Function): void {
     callbacks.push(cb);
 }
+
+function easeOutQuart(t: number): number {
+    return 1 - (--t) * t * t * t;
+}
+
+export function scrollYTo(position: number): void {
+
+    const start = info().scrollY;
+    const time = Date.now();
+    const duration = Math.abs(start - position) / 3;
+
+    (function step() {
+        const dx = Math.min(1, (Date.now() - time) / duration);
+        const pos = start + (position - start) * easeOutQuart(dx);
+        window.scrollTo(0, pos);
+        if (dx < 1) {
+            requestAnimationFrame(step);
+        }
+    })();
+}
