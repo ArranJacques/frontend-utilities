@@ -10,7 +10,7 @@ export default class {
         }
     }
 
-    public add(classes: ClassList, condition: any): void {
+    public add(classes: ClassList, condition?: any): void {
 
         const con = arguments.length === 1 ? true : condition;
 
