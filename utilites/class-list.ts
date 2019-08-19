@@ -1,16 +1,16 @@
-export type ClassList = string | Array<string>;
+export type Classes = string | Array<string>;
 
 export default class {
 
     classList: Array<string> = [];
 
-    constructor(classes?: ClassList) {
+    constructor(classes?: Classes) {
         if (classes) {
             this.addToList(classes);
         }
     }
 
-    public add(classes: ClassList, condition?: any): void {
+    public add(classes: Classes, condition?: any): void {
 
         const con = arguments.length === 1 ? true : condition;
 
@@ -31,7 +31,7 @@ export default class {
         return this.classList.join(' ').trim();
     }
 
-    protected addToList(classes: ClassList): void {
+    protected addToList(classes: Classes): void {
         this.classList = this.classList.concat(
             Array.isArray(classes) ? classes : [classes]
         );
