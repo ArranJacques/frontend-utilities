@@ -2,7 +2,7 @@ export type ClassList = string | Array<string>;
 
 export default class {
 
-    classList: Array<string> [];
+    classList: Array<string> = [];
 
     constructor(classes?: ClassList) {
         if (classes) {
