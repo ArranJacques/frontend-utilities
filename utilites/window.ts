@@ -9,10 +9,12 @@ type Info = {
     scrollY: number
 };
 
-window.addEventListener('resize', () => {
-    clearTimeout(timer);
-    timer = setTimeout(() => callbacks.forEach(cb => cb()), INTERVAL);
-});
+if (typeof window !== 'undefined') {
+    window.addEventListener('resize', () => {
+        clearTimeout(timer);
+        timer = setTimeout(() => callbacks.forEach(cb => cb()), INTERVAL);
+    });
+}
 
 export function info(): Info {
     return {
