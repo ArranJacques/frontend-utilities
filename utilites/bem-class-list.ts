@@ -12,7 +12,7 @@ export default class extends ClassList {
     }
 
     public add(modifiers: BemModifiers, condition?: any): void {
-        super.add(modifiers, condition);
+        super.add(modifiers, arguments.length === 1 ? true : condition);
     }
 
     public toString(): string {
