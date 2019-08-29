@@ -2,6 +2,7 @@
     "name": "frontend-utilities",
     "version": "0.0.0",
     "description": "Frontend utilities and helpers",
+    "main": "index.ts",
     "author": {
         "name" : "Arran Jacques",
         "email" : "arranjacques@gmail.com"
