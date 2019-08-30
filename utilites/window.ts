@@ -41,14 +41,14 @@ function easeOutQuart(t: number): number {
     return 1 - (--t) * t * t * t;
 }
 
-export function scrollYTo(position: number): void {
+export function scrollYTo(position: number, duration?: number): void {
 
     const start = info().scrollY;
     const time = Date.now();
-    const duration = Math.abs(start - position) / 3;
+    const dur = duration ? duration : Math.abs(start - position) / 3;
 
     (function step() {
-        const dx = Math.min(1, (Date.now() - time) / duration);
+        const dx = Math.min(1, (Date.now() - time) / dur);
         const pos = start + (position - start) * easeOutQuart(dx);
         window.scrollTo(0, pos);
         if (dx < 1) {
