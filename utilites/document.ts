@@ -13,3 +13,15 @@ export function getNode<T extends Element>(selector: string): T {
     }
     return node;
 }
+
+export function getNodePosition(el: Element): ClientRect {
+    const bounds = el.getBoundingClientRect();
+    return {
+        height: bounds.height,
+        width: bounds.width,
+        top: bounds.top + document.body.scrollTop,
+        right: bounds.left + document.body.scrollLeft + bounds.width,
+        bottom: bounds.top + document.body.scrollTop + bounds.height,
+        left: bounds.left + document.body.scrollLeft
+    };
+}
