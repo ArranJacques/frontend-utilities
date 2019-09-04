@@ -1,3 +1,5 @@
+import { info } from './window';
+
 export function onReady(cb: () => void) {
     if (document.readyState === 'interactive' || document.readyState === 'complete') {
         cb();
@@ -19,9 +21,9 @@ export function getNodePosition(el: Element): ClientRect {
     return {
         height: bounds.height,
         width: bounds.width,
-        top: bounds.top + document.body.scrollTop,
-        right: bounds.left + document.body.scrollLeft + bounds.width,
-        bottom: bounds.top + document.body.scrollTop + bounds.height,
-        left: bounds.left + document.body.scrollLeft
+        top: bounds.top + info().scrollY,
+        right: bounds.left + bounds.width + info().scrollX,
+        bottom: bounds.top + bounds.height + info().scrollY,
+        left: bounds.left + info().scrollX
     };
 }
