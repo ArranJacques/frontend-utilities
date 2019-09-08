@@ -18,9 +18,17 @@ export default class extends ClassList {
         return super.add(modifiers, arguments.length === 1 ? true : condition);
     }
 
+    public get(): string[] {
+        return this.getClassList();
+    }
+
     public toString(): string {
-        return !this.classList.length ? this.baseClass : this.baseClass + ' ' + this.classList.map(
-            c => `${this.baseClass}--${c}`
-        ).join(' ').trim();
+        return this.getClassList().join(' ').trim();
+    }
+
+    protected getClassList(): string[] {
+        const cl = [this.baseClass];
+        this.classList.forEach(c => cl.push(`${this.baseClass}--${c}`));
+        return cl;
     }
 }
