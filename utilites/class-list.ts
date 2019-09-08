@@ -2,7 +2,7 @@ export type Classes = string | Array<string>;
 
 export default class {
 
-    classList: Array<string> = [];
+    classList: string[] = [];
 
     constructor(classes?: Classes) {
         if (classes) {
@@ -10,17 +10,27 @@ export default class {
         }
     }
 
-    public add(classes: Classes, condition?: any): void {
+    public add(classes: Classes | undefined, condition?: any): this {
 
-        const con = arguments.length === 1 ? true : condition;
+        if (classes === undefined) {
+            return this;
+        }
 
-        if (typeof con === 'function') {
-            if (con()) {
+        const add = arguments.length === 1 ? true : condition;
+
+        if (typeof add === 'function') {
+            if (add()) {
                 this.addToList(classes);
             }
-        } else if (con) {
+        } else if (add) {
             this.addToList(classes);
         }
+
+        return this;
+    }
+
+    public get(): string[] {
+        return this.classList;
     }
 
     public string(): string {
