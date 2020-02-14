@@ -41,7 +41,7 @@ function easeOutQuart(t: number): number {
     return 1 - (--t) * t * t * t;
 }
 
-export function scrollYTo(position: number, duration?: number): void {
+export function scrollYTo(position: number, duration?: number, cb?: () => void): void {
 
     const start = info().scrollY;
     const time = Date.now();
@@ -53,6 +53,10 @@ export function scrollYTo(position: number, duration?: number): void {
         window.scrollTo(0, pos);
         if (dx < 1) {
             requestAnimationFrame(step);
+        } else {
+            if (cb) {
+                cb();
+            }
         }
     })();
 }
