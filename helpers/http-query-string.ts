@@ -22,6 +22,6 @@ function serialize(obj: { [key: string]: any }, prefix?: string): string {
     return str.join('&');
 }
 
-export default function (obj: { [key: string]: any }): string {
+export default function httpQueryString(obj: { [key: string]: any }): string {
     return serialize(obj);
 }

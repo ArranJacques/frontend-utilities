@@ -1,4 +1,4 @@
-export default function (el: HTMLElement, classes: string[] | string): boolean {
+export default function hasClass(el: HTMLElement, classes: string[] | string): boolean {
 
     const cl = Array.isArray(classes) ? classes : [classes];
 

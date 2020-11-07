@@ -1,4 +1,4 @@
-export default function <T>(
+export default function arrayProcess<T>(
     items: Array<T>,
     fn: (el: T, next: () => void) => void,
     done?: () => void

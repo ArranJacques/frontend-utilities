@@ -1,4 +1,4 @@
-export default function (str: string, size: number, char: string, pos: 'left' | 'right' = 'left'): string {
+export default function stringPad(str: string, size: number, char: string, pos: 'left' | 'right' = 'left'): string {
     let s = str + '';
     while (s.length < size) {
         if (pos === 'left') {

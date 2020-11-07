@@ -1,5 +1,5 @@
 // Thanks to https://gist.github.com/hagemann/382adfc57adbd5af078dc93feef01fe1
-export default function (string: string): string {
+export default function stringSlugify(string: string): string {
 
     const a = 'àáäâãåăæąçćčđďèéěėëêęğǵḧìíïîįłḿǹńňñòóöôœøṕŕřßşśšșťțùúüûǘůűūųẃẍÿýźžż·/_,:;';
     const b = 'aaaaaaaaacccddeeeeeeegghiiiiilmnnnnooooooprrsssssttuuuuuuuuuwxyyzzz------';
